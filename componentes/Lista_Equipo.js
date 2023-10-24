@@ -1,7 +1,7 @@
+import React, { Component } from 'react'
 import { View } from "react-native"
 import Equipo from "./Equipo"
 import { StyleSheet } from "react-native";
-import React, { Component } from 'react'
 
 class Lista_Equipo extends Component {
     constructor(props) {
@@ -10,15 +10,13 @@ class Lista_Equipo extends Component {
     }
 
     render() {
-        const { Equipo1, Equipo2, Equipo3 } = this.state;
+        const equipos = ["Equipo1", "Equipo2", "Equipo3"];
         return (
-
             <View style={styles.headerStyle}>
-                <Equipo equipo={Equipo1}/>
-                <Equipo equipo={Equipo2} />
-                <Equipo equipo={Equipo3} />
+                {equipos.map((equip, index) => (
+                    <Equipo key={index} equipo={equip} />
+            ))}
             </View>
-
         );
     }
 }

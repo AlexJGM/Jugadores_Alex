@@ -9,16 +9,13 @@ class ListaJugadores extends Component {
         super(props);
         this.state = { Jugador1: 'Jugador1', Jugador2: 'Jugador2', Jugador3: 'Jugador3', Jugador4: 'Jugador4', Jugador5: 'Jugador5' };
     }
-
     render() {
-        const { Jugador1, Jugador2, Jugador3, Jugador4, Jugador5 } = this.state;
+        const Jugadore = ["Jugador1", "Jugador2", "Jugador3", "Jugador4", "Jugador5"];
         return (
             <View>
-               <Jugadores jugador={Jugador1} />
-               <Jugadores jugador={Jugador2}/>
-               <Jugadores jugador={Jugador3}/>
-               <Jugadores jugador={Jugador4}/>
-               <Jugadores jugador={Jugador5}/>
+               {Jugadore.map((jugado, index) => (
+                    <Jugadores jugador={jugado} key={index} />
+                ))}
             </View>
         );
     }

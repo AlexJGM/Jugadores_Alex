@@ -1,10 +1,11 @@
 import { Text, View } from "react-native"
 import { StyleSheet } from "react-native";
+import { TouchableOpacity } from "react-native-web";
 
 function Jugadores(props) {
     return (
       <>
-      <Text style={styles.equipos}>{props.jugador}</Text>
+        <TouchableOpacity style={styles.equipos}>{props.jugador}</TouchableOpacity>
       </>
     );
   }
