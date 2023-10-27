@@ -5,7 +5,9 @@ import { TouchableOpacity } from "react-native-web";
 function Jugadores(props) {
     return (
       <>
-        <TouchableOpacity style={styles.equipos}>{props.jugador}</TouchableOpacity>
+        <TouchableOpacity style={styles.equipos}>
+          <Text>{props.jugador}</Text>
+          </TouchableOpacity>
       </>
     );
   }

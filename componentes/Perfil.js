@@ -1,15 +1,23 @@
+import { Component } from "react";
 import { View } from "react-native";
 import { StyleSheet } from "react-native";
 import { Image } from "react-native";
+import ListaJugadores from "./ListaJugadores";
 
-export default function Perfil() {
+export default class Perfil extends Component {
+  
+  render() {
+
     return (
-        <View style={styles.assideStyle}>
-        <Image style={styles.image} source={{
-                          uri: 'https://estaticos-cdn.sport.es/clip/079f8146-5fef-4016-b95b-6acfcb65b810_alta-libre-aspect-ratio_default_0.jpg',
-                      }}></Image>
-        </View>
-    )
+      <View style={styles.assideStyle}>
+      
+      <Image style={styles.image} source={{
+                        uri: 'https://estaticos-cdn.sport.es/clip/079f8146-5fef-4016-b95b-6acfcb65b810_alta-libre-aspect-ratio_default_0.jpg',
+                    }}></Image>
+      </View>
+  )
+  }
+   
 }
 
 const styles = StyleSheet.create({

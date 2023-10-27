@@ -1,21 +1,28 @@
-import React, { Component } from 'react'
 import { View } from "react-native"
 import Equipo from "./Equipo"
 import { StyleSheet } from "react-native";
+import React, { Component } from 'react'
 
 class Lista_Equipo extends Component {
     constructor(props) {
         super(props);
-        this.state = { Equipo1: 'Equipo1', Equipo2: 'Equipo2', Equipo3: 'Equipo3' };
+        this.state = {
+            equipos: ['Equipo1', 'Equipo2', 'Equipo3'],
+        };
     }
 
     render() {
-        const equipos = ["Equipo1", "Equipo2", "Equipo3"];
+        const { EquipoSeleccionado } = this.props;
+        const { equipos } = this.state;
+
         return (
             <View style={styles.headerStyle}>
-                {equipos.map((equip, index) => (
-                    <Equipo key={index} equipo={equip} />
-            ))}
+                {equipos.map((equip, index) => {
+                    return (
+                        <Equipo key={index} equipo={equip} EquipoSeleccionado={EquipoSeleccionado} />
+
+                    )
+                })}
             </View>
         );
     }

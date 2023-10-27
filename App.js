@@ -3,18 +3,35 @@ import { StyleSheet, Text, View, Button,Image} from 'react-native';
 import Lista_Equipo from './componentes/Lista_Equipo';
 import Body from './componentes/Body';
 import Footer from './componentes/Footer';
+import { Component } from 'react';
 
 
-export default function App() {
-  return (
-  <View style={styles.container}>
-    <Lista_Equipo />
-    <Body />
-    <Footer />
-  </View>
-  );
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        equipoSeleccionado: 'Equipo1',
+    };
 }
 
+
+EquipoSeleccionado = (equipo) => {
+  this.setState({ equipoSeleccionado: equipo });
+}
+
+  
+render() {
+  const { equipoSeleccionado } = this.state;
+
+  return (
+      <View style={styles.container}>
+          <Lista_Equipo EquipoSeleccionado={this.EquipoSeleccionado} />
+          <Body equipoSeleccionado={equipoSeleccionado} />
+          <Footer />
+      </View>
+  );
+}
+}
 const styles = StyleSheet.create({
 container:{
 borderWidth: 2,

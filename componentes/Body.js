@@ -4,10 +4,10 @@ import ListaJugadores from "./ListaJugadores"
 import Perfil from "./Perfil"
 
 
-export default function Body() {
+export default function Body({ equipoSeleccionado }) {
     return (
         <View style={styles.bodyStyle}>
-            <ListaJugadores />
+            <ListaJugadores equipoSeleccionado={equipoSeleccionado}/>
             <Perfil />
         </View>
     )
