@@ -3,58 +3,34 @@ import { View, Text } from "react-native";
 
 
 export default function Footer() {
-    return (
-        <View style={styles.footerStyle}>
-            <Text style={styles.equipos}>www.equipo.com</Text>
-            <Text style={styles.equipos}>123456789</Text>
-        </View>
-    )
+  return (
+      <View style={styles.footerStyle}>
+          <Text style={styles.equipos}>www.equipo.com</Text>
+          <Text style={styles.equipos}>123456789</Text>
+      </View>
+  )
 }
 
 const styles = StyleSheet.create({
-    container:{
+ 
+  equipos:{
+  fontSize:16,
+  borderWidth:2,
+  margin: 10,
+  borderRadius:10,
+  textAlign: "center",
+  height: 30,
+  width: 200,
+  backgroundColor: "white",
+  },
+  footerStyle: {
     borderWidth: 2,
-    borderColor: '#000000',
-    flex:1,
-    },
-    headerStyle:{
-    borderWidth: 2,
-    borderColor: '#000000',
-    height:100,
+    borderColor: "#000000",
     flexDirection: "row",
-    alignItems: "center",
-    margin: 10,
-    },
-    bodyStyle:{
-    borderWidth:2,
-    borderColor: '#000000',
-    flex:1,
-    flexDirection:'row',
-    },
-    equipos:{
-    fontSize:16,
-    borderWidth:2,
-    borderColor: '#000000',
-    margin: 10,
-    },
-    assideStyle:{
-      borderWidth:2,
-      borderColor: '#000000',
-      width:"100%",
-      height:"100%",
-    },
-    image: {
-      width: "100%",
-      height: "100%"
-    },
-    footerStyle: {
-      borderWidth: 2,
-      borderColor: "#000000",
-      flexDirection: "row",
-      height: 100,
-      justifyContent: 'space-between',
-      paddingLeft: 10,
-      paddingRight: 10,
-      padding: 10,
-    },
-    });
+    justifyContent: 'space-between',
+    paddingLeft: 10,
+    paddingRight: 10,
+    padding: 10,
+    backgroundColor: "#405E9D",
+  },
+  });

@@ -1,63 +1,58 @@
 import { Text, View } from "react-native"
 import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-web";
+import React, { Component } from 'react'
 
-function Jugadores(props) {
+
+const coloresJugadores = {
+  Messi: '#2F70A5',
+  Cristiano: '#6379B6',
+  Puyol: '#5ECBCC',
+  Casillas: '#3C7D8C',
+  Nazario: '#7CDEC5',
+  Ronaldinho: '#2F70A5',
+  Gavi: '#6379B6',
+  Pedri: '#5ECBCC',
+  Kounde: '#3C7D8C',
+  TerStegen: '#7CDEC5',
+  Courtois: '#2F70A5',
+  Rudiger: '#6379B6',
+  Modric: '#5ECBCC',
+  Bellingan: '#3C7D8C',
+  Kross: '#7CDEC5',
+};
+
+class Jugadores extends Component{
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      //const jugadorColor = coloresJugadores[this.props.jugador] || 'white';
+      const jugadorColor = this.props.jugador === this.props.JugadorSeleccionado ? coloresJugadores[this.props.jugador] : 'white';
+
     return (
       <>
-        <TouchableOpacity style={styles.equipos}>
-          <Text>{props.jugador}</Text>
-          </TouchableOpacity>
+        <TouchableOpacity style={[styles.equipos, { backgroundColor: jugadorColor }]} onPress={() => this.props.jugadorSeleccionado(this.props.jugador)}><Text style={styles.texto}>{this.props.jugador}</Text></TouchableOpacity>
       </>
     );
+    }
   }
   
   export default Jugadores;
 
 const styles = StyleSheet.create({
-    container:{
-    borderWidth: 2,
-    borderColor: '#000000',
-    flex:1,
-    },
-    headerStyle:{
-    borderWidth: 2,
-    borderColor: '#000000',
-    height:100,
-    flexDirection: "row",
-    alignItems: "center",
-    margin: 10,
-    },
-    bodyStyle:{
-    borderWidth:2,
-    borderColor: '#000000',
-    flex:1,
-    flexDirection:'row',
-    },
     equipos:{
     fontSize:16,
     borderWidth:2,
     borderColor: '#000000',
     margin: 10,
+    borderRadius: 10,
+    width: 100,
     },
-    assideStyle:{
-      borderWidth:2,
-      borderColor: '#000000',
-      width:"100%",
-      height:"100%",
+    texto:{
+      textAlign: "center",
+      textShadowColor: "black",
+      textShadowRadius: 1,
     },
-    image: {
-      width: "100%",
-      height: "100%"
-    },
-    footerStyle: {
-      borderWidth: 2,
-      borderColor: "#000000",
-      flexDirection: "row",
-      height: 100,
-      justifyContent: 'space-between',
-      paddingLeft: 10,
-      paddingRight: 10,
-      padding: 10,
-    },
+  
     });
