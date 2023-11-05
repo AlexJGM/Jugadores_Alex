@@ -1,6 +1,6 @@
-import { Text, View } from "react-native"
+import { Platform, Text, View } from "react-native"
 import { StyleSheet } from "react-native";
-import { TouchableOpacity } from "react-native-web";
+import { TouchableOpacity } from "react-native";
 import React, { Component } from 'react'
 
 
@@ -30,11 +30,20 @@ class Jugadores extends Component{
       //const jugadorColor = coloresJugadores[this.props.jugador] || 'white';
       const jugadorColor = this.props.jugador === this.props.JugadorSeleccionado ? coloresJugadores[this.props.jugador] : 'white';
 
-    return (
-      <>
-        <TouchableOpacity style={[styles.equipos, { backgroundColor: jugadorColor }]} onPress={() => this.props.jugadorSeleccionado(this.props.jugador)}><Text style={styles.texto}>{this.props.jugador}</Text></TouchableOpacity>
-      </>
-    );
+    if(Platform.OS === 'web') {
+      return (
+        <>
+          <TouchableOpacity style={[styles.equipos, { backgroundColor: jugadorColor }]} onPress={() => this.props.jugadorSeleccionado(this.props.jugador)}><Text style={styles.texto}>{this.props.jugador}</Text></TouchableOpacity>
+        </>
+      );
+    } else if(Platform.OS === 'android') {
+      return (
+        <>
+          <TouchableOpacity style={[styles.equiposAndroid, { backgroundColor: jugadorColor }]} onPress={() => this.props.jugadorSeleccionado(this.props.jugador)}><Text style={styles.textoAndroid}>{this.props.jugador}</Text></TouchableOpacity>
+        </>
+      );
+    }
+   
     }
   }
   
@@ -54,5 +63,19 @@ const styles = StyleSheet.create({
       textShadowColor: "black",
       textShadowRadius: 1,
     },
+    equiposAndroid:{
+      fontSize:16,
+      borderWidth:2,
+      borderColor: '#000000',
+      margin: 3,
+      width: "95%",
+      height: 50,
+      justifyContent: 'center',
+      },
+      textoAndroid:{
+        textAlign: "center",
+        textShadowColor: "black",
+        textShadowRadius: 1,
+      },
   
     });
